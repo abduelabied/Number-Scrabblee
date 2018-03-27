@@ -2,42 +2,99 @@
 
 using namespace std;
 
- void sortNumber (int& n1 , int& n2){
-        if(n1 > n2)
-            swap(n1,n2);
-}
-void sortNumber(int& n1 , int& n2 , int& n3){
-    sortNumber(n1,n2);
-    sortNumber(n1,n3);
-    sortNumber(n2,n3);
-
-}
-void sortNumber(int& n1 , int& n2 , int& n3 , int& n4){
-    sortNumber(n1,n2,n3);
-    sortNumber(n2,n3,n4);
-    sortNumber(n1,n2);
-
-
-
-}
-
-
 int main()
 {
-int x,y,z,a,c,q,w,e,r;
-cout<<"Please Enter Your Two number you want to sort:"<<endl;
-cin>>x>>y;
-sortNumber(x,y);
-cout<<"sort between two numbers is :"<<endl<<x<<endl<<y<<endl<<endl;
-cin>>z>>a>>c;
-sortNumber(z,a,c);
-cout<<endl<<z<<endl<<a<<endl<<c<<endl<<endl;
-cin>>q>>w>>e>>r;
-sortNumber(q,w,e,r);
+// FCI –Programming 1 –2018 -Assignment 2
+// Program Name:ROT13Cipher .cpp
+//Last Modification Date:26/02/2018
+// Author1 and ID and Group:Abdulrahman Hussien Ali Elabied , 20170163 , G14
+// Teaching Assistant:Eng.Desokii
+// Purpose:..........
+    int Choice;
+    string Message,Chepher;
+    string Ascii;
+    cout<<"Ahlan ya user ya habibi."<<endl;
+    cout<<"What do you like to do today?"<<endl;
+    cout<<"1- Cipher a message"<<endl;
+    cout<<"2- Decipher a message"<<endl;
+    cout<<"3- End"<<endl;
+    cout<<"Please enter your choice --> :";
+    cin>>Choice;
+    if(Choice == 1)
+    {
+        cout<<"Please enter your message you want to chipher:"<<endl;
+        cin.clear();
+        cin.ignore();
+        getline(cin,Message);
 
-cout<<endl<<q<<endl<<w<<endl<<e<<endl<<r<<endl;
+        for(int i = 0; i < Message.length(); ++i )
+        {
+            int num=Message[i];
+
+            if(num > 32 && num < 110)
+            {
+                num+=13;
+                Chepher=char(num);
+                cout<<Chepher;
+            }
+            else if(num >= 110)
+            {
+                num=(num+13)-26;
+                Chepher=char(num);
+                cout<<Chepher;
+            }
+            else if(num == 32)
+            {
+                num=num;
+                Chepher=char(num);
+                cout<<Chepher;
 
 
+            }
+
+        }
+    }
+    else if(Choice == 2)
+    {
+        cout<<"Please enter your message you want to dechipher:"<<endl;
+        cin.clear();
+        cin.ignore();
+        getline(cin,Message);
+        for(int i = 0; i < Message.length(); ++i )
+        {
+            int num=Message[i];
+
+            if(num >= 110 && num < 123)
+            {
+                num-=13;
+                Chepher=char(num);
+                cout<<Chepher;
+            }
+            else if(num >= 97)
+            {
+                num=num+13;
+                Chepher=char(num);
+                cout<<Chepher;
+            }
+            else if(num == 32)
+            {
+                num=num;
+                Chepher=char(num);
+                cout<<Chepher;
+
+
+            }
+
+        }
+
+
+
+
+
+
+
+    }
 
     return 0;
 }
+
